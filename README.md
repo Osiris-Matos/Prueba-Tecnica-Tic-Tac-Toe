@@ -1,0 +1,1 @@
+Este proyecto lo realice usando el IDE "Visual Studio Code" y para comprobar el estado en todo momento usé la extensión llamada "Live Server" la cual permite ver los cambios guardados en tiempo real en la pagina y para ejecutarlo seria necesario presionar "Go live"
