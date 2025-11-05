@@ -7,12 +7,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const mode2p = document.querySelector('#mode-2p');
     const scoreXDisplay = document.querySelector('#scoreX');
     const scoreODisplay = document.querySelector('#scoreO');
+    const gameModeDisplay = document.querySelector('.game-mode');
 
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
     let isGameActive = true;
     let vsCPU = false;
-
     let scoreX = parseInt(localStorage.getItem('scoreX')) || 0;
     let scoreO = parseInt(localStorage.getItem('scoreO')) || 0;
     scoreXDisplay.textContent = scoreX;
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
                 break;
             case TIE:
-                announcer.innerHTML = '<span style="color:#EE9200;">¡EMPATE!</span>';
+                announcer.innerHTML = '<span style="color:#EE9200;">¡Empate!</span>';
                 break;
         }
         announcer.classList.remove('hide');
@@ -70,18 +70,11 @@ window.addEventListener('DOMContentLoaded', () => {
             scoreX++;
             scoreXDisplay.textContent = scoreX;
             localStorage.setItem('scoreX', scoreX);
-            animateScore(scoreXDisplay);
         } else if (winner === 'O') {
             scoreO++;
             scoreODisplay.textContent = scoreO;
             localStorage.setItem('scoreO', scoreO);
-            animateScore(scoreODisplay);
         }
-    }
-
-    function animateScore(element) {
-        element.classList.add('updated');
-        setTimeout(() => element.classList.remove('updated'), 400);
     }
 
     const isValidAction = (tile) => tile.innerText === '';
@@ -145,12 +138,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     mode1p.addEventListener('click', () => {
         vsCPU = true;
+        gameModeDisplay.textContent = "Modo: 1 Jugador (vs CPU)";
+        gameModeDisplay.classList.remove('hide');
         resetScores();
         resetBoard();
     });
 
     mode2p.addEventListener('click', () => {
         vsCPU = false;
+        gameModeDisplay.textContent = "Modo: 2 Jugadores";
+        gameModeDisplay.classList.remove('hide');
         resetScores();
         resetBoard();
     });

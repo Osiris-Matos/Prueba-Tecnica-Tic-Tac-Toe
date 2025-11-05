@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
 }
 
 @font-face {
@@ -14,9 +13,9 @@
 .body {
     background-image: url(Fondo.png);
     background-size: cover;
-    background-repeat:no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
     min-height: 100vh;
 }
 
@@ -26,8 +25,86 @@
     font-size: 60px;
     color: #FFFFFF;
     text-align: center;
-    margin-top: 2%;
+    line-height: 199px;
+    margin-top: 5%;
+}
+
+.game-mode {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #EE9200;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.display {
+    color: #FFFFFF;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+}
+
+.tile {
+    border: 1px solid #FFFFFF;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.playerX {
+    color: #EF9701B5;
+}
+
+.player0 {
+    color: #FFFFFF;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+#reset {
+    background-color: #EE9200;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#mode-1p, #mode-2p {
+    background-color: #EE9200;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .scoreboard {
@@ -38,53 +115,8 @@
     margin-bottom: 0.5em;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
-    font-size: 1.5em;
+    font-size: 22px;
     font-weight: bold;
-}
-
-.score span {
-    transition: transform 0.3s ease;
-}
-
-.score span.updated {
-    transform: scale(1.3);
-}
-
-.display {
-    color: #FFFFFF;
-    font-size: 25px;
-    text-align: center;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-}
-
-.container {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 6px;
-    max-width: 300px;
-}
-
-.tile {
-    border: 1px solid #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    cursor: pointer;
-    color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-    user-select: none;
-}
-
-.playerX {
-    color: #EF9701B5;
-}
-
-.player0 {
-    color: #EE9200;
 }
 
 .announcer {
@@ -94,36 +126,62 @@
     margin-top: 0.5em;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .announcer span {
     color: #EE9200;
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5em;
-    gap: 1em;
+@media (max-width: 768px) {
+    .body {
+        background-size: cover;
+        background-position: top center;
+        height: 100%;
+    }
+
+    #mode-1p, #mode-2p, #reset {
+        width: 70%;
+        max-width: 250px;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8em;
+        margin-top: 2em;
+    }
+
+    .game-mode {
+        font-size: 20px;
+    }
 }
 
-.controls button {
-    background-color: #EE9200;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-}
+@media (max-width: 480px) {
+    .body {
+        background-size: cover;
+        background-position: top center;
+        height: 100%;
+    }
 
-.controls button:hover {
-    background-color: #EF9701;
-    transform: scale(1.05);
-}
+    #mode-1p, #mode-2p, #reset {
+        width: 80%;
+        max-width: 240px;
+        font-size: 15px;
+        padding: 10px;
+    }
 
-.hide {
-    display: none !important;
+    .scoreboard {
+        gap: 2em;
+        font-size: 18px;
+    }
+
+    .display {
+        font-size: 20px;
+    }
+
+    .game-mode {
+        font-size: 18px;
+    }
 }
