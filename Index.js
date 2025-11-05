@@ -53,10 +53,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const announce = (type) => {
         switch (type) {
             case PLAYERO_WON:
-                announcer.innerHTML = 'Player <span class="player0">O</span> Won';
+                announcer.innerHTML = 'El Jugador <span class="player0">O</span> Ganó';
                 break;
             case PLAYERX_WON:
-                announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+                announcer.innerHTML = 'El Jugador <span class="playerX">X</span> Ganó';
                 break;
             case TIE:
                 announcer.innerHTML = '<span style="color:#EE9200;">¡Empate!</span>';
