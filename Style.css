@@ -14,7 +14,9 @@
 .body {
     background-image: url(Fondo.png);
     background-size: cover;
-    background-position: center;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
